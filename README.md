@@ -165,3 +165,37 @@ Parameters:
   - `imageRef` (string, optional): If a node has an imageRef fill, you must include this variable. Leave blank when downloading Vector SVG images.
   - `fileName` (string, required): The local name for saving the fetched file
 - `localPath` (string, required): The absolute path to the directory where images are stored in the project. Automatically creates directories if needed.
+
+## Docker Support
+
+You can run the Figma MCP server using Docker:
+
+```bash
+docker run -i --rm --name cursor-figma-mcp \
+  -e FIGMA_API_KEY=<your-figma-api-key> \
+  --network=host \
+  rtan2516/figma-context-mcp:latest \
+  --stdio
+```
+
+### JSON config for tools with Docker
+
+```json
+{
+  "mcpServers": {
+    "Framelink Figma MCP": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "--name", "cursor-figma-mcp",
+        "-e", "FIGMA_API_KEY=<your-figma-api-key>",
+        "--network=host",
+        "rtan2516/figma-context-mcp:latest",
+        "--stdio"
+      ]
+    }
+  }
+}
+```
