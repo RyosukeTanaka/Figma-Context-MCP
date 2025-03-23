@@ -1,0 +1,16 @@
+"figma-developer-mcp": {
+    "command": "docker",
+    "args": [
+      "run",
+      "-i",
+      "--rm",
+      "--name", "cursor-figma-mcp",
+      "-e", "FIGMA_API_KEY=xxxxxxxx",
+      "--network=host",
+      "rtan2516/figma-context-mcp:latest",
+      "--stdio"
+    ],
+    "env": {
+      "FIGMA_API_KEY": "xxxxxxxxx"
+    }
+  }    
